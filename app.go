@@ -127,27 +127,19 @@ func rimToArab(numArab string) int {
 	return res
 }
 
-func integerToRoman(number int) string {
-	conversions := []struct {
-		value int
-		digit string
-	}{
-		{100, "C"},
-		{90, "XC"},
-		{50, "L"},
-		{40, "XL"},
-		{10, "X"},
-		{9, "IX"},
-		{5, "V"},
-		{4, "IV"},
-		{1, "I"},
-	}
-	var roman strings.Builder
-	for _, conversion := range conversions {
-		for number >= conversion.value {
-			roman.WriteString(conversion.digit)
-			number -= conversion.value
+func integerToRoman(num int) string {
+	roman := ""
+	numbers := []int{1, 4, 5, 9, 10, 40, 50, 90, 100}
+	romans := []string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C"}
+	var i = len(romans) - 1
+
+	for num > 0 {
+		for numbers[i] <= num {
+			roman += romans[i]
+			num -= numbers[i]
 		}
+		i -= 1
 	}
-	return roman.String()
+
+	return roman
 }
