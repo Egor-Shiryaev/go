@@ -49,7 +49,7 @@ func main() {
 			fmt.Println(errors.New("результат работы с римскими числами должен быть больше нуля"))
 			return
 		} else {
-			fmt.Println(integerToRoman(res))
+			fmt.Println(arabToRim(res))
 			return
 		}
 	}
@@ -127,7 +127,7 @@ func rimToArab(numArab string) int {
 	return res
 }
 
-func integerToRoman(num int) string {
+func arabToRim(num int) string {
 	roman := ""
 	numbers := []int{1, 4, 5, 9, 10, 40, 50, 90, 100}
 	romans := []string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C"}
